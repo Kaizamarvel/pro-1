@@ -17,7 +17,21 @@ except(ImportError):
     os.system("pip install bs4")
 
 rana=platform.architecture()[0]
-if rana=="32bit":
-    __import__("pro32").my_tool_security()
-elif rana=="64bit":
-    __import__("pro").mysecurity()
+try:
+    if rana=="32bit":
+        __import__("pro32").mysecurity()
+    elif rana=="64bit":
+        __import__("pro").mysecurity()
+    else:
+        print(" We have issue to launch script")
+        exit()
+except(AttributeError,OSError,KeyError,IOError):
+    if rana == "32bit":
+        import pro32
+        pro32.mysecurity()
+    elif rana == "64bit":
+        import pro
+        pro.mysecurity()
+    else:
+        print(" We have issue to launch script")
+        exit()
