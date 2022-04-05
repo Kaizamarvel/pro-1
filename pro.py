@@ -19,9 +19,9 @@ except(ImportError):
 rana=platform.architecture()[0]
 try:
     if rana=="32bit":
-        __import__("pro32")pro32.main_menu()
+        __import__("pro32").main_menu()
     elif rana=="64bit":
-        __import__("pro")pro.main_menu()
+        __import__("pro").main_menu()
     else:
         print(" We have issue to launch script")
         exit()
